@@ -1,23 +1,30 @@
-import Link from "next/link";
+import PostSearch from "@/components/PostSearch";
+import Posts from "@/components/Posts";
 
-async function getData() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
-    next: { revalidate: 60 },
-  });
-  return res.json();
-}
-const Blogs = async () => {
-  const posts = await getData();
+// import { getAllPosts } from "@/services/getPosts";
+// import { useEffect, useState } from "react";
+
+// async function getData() {
+//   const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+//     next: { revalidate: 60 },
+//   });
+//   return res.json();
+// }
+// export const metadata: Metadata = {
+//   title: "Blog | Next App",
+// };
+
+const Blogs = () => {
+ 
+
   return (
     <>
       <h1>Blogs</h1>
-      <ul>
-        {posts.map((post: any) => (
-          <li key={post.id}>
-            <Link href={`/blog/${post.id}`}>{post.title}</Link>
-          </li>
-        ))}
-      </ul>
+      <PostSearch
+      // onSearch={setPosts}
+      />
+
+      <Posts />
     </>
   );
 };

@@ -6,6 +6,7 @@ async function getData(id: string) {
   });
   return res.json();
 }
+
 export async function generateMetadata({
   params: { id },
 }: Props): Promise<Metadata> {
